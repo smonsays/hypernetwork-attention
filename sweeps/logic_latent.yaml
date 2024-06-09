@@ -1,0 +1,20 @@
+method: grid
+name: 20240503_logic_4var_2term_latents
+parameters:
+  config:
+    values:
+      - configs/logic.py:logic_4var_2term;linear_transformer
+      - configs/logic.py:logic_4var_2term;transformer
+      - configs/logic.py:logic_4var_2term;linear_hypatt
+  config.data.seq_len:
+    values:
+      - 96
+  config.data.frac_test:
+    values:
+      - 0.5
+  config.seed:
+    values:
+      - 2024
+  log_level:
+    value: 1
+program: run.py

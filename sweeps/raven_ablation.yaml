@@ -1,0 +1,43 @@
+method: grid
+name: 20240521_sraven_ablation
+parameters:
+  config:
+    values:
+      - configs/raven.py:raven_3x3_4features;linear_hypatt
+      - configs/raven.py:raven_3x3_4features;linear_hypatt_no_rms_head
+      - configs/raven.py:raven_3x3_4features;linear_attention_rms_head
+      - configs/raven.py:raven_3x3_4features;linear_attention
+      - configs/raven.py:raven_3x3_4features;linear_hypatt_mlp_linear_no_rms_head
+      - configs/raven.py:raven_3x3_4features;linear_hypatt_mlp_linear
+  config.data.num_train:
+    values:
+      - 20000000
+  config.width_multiplier:
+    values:
+      - 1
+  config.model.num_layers:
+    values:
+      - 4
+  config.lr:
+    values:
+      - 0.001
+      - 0.0003
+  config.weight_decay:
+    values:
+      - 0.1
+      - 0.3
+  config.warmup_steps:
+    values:
+      - 1000
+  config.seed:
+    values:
+      - 0
+      - 1
+      - 2
+  log_level:
+    value: 1
+  log_every:
+    value: 10000
+  eval_every:
+    value: 10000
+program: run.py

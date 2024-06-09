@@ -1,0 +1,45 @@
+method: grid
+name: 20240419_wikitext103_comparison_seq-len
+parameters:
+  config:
+    values:
+      - configs/wiki.py:wikitext-103-raw-v1;transformer
+      - configs/wiki.py:wikitext-103-raw-v1;linear_transformer
+      - configs/wiki.py:wikitext-103-raw-v1;linear_hypatt
+  config.model.state_mixer:
+    values:
+      - swiglu
+  config.batch_size:
+    values:
+      # - 64
+      - 128
+  config.data.seq_len:
+    values:
+      - 32
+      - 64
+      - 128
+      - 256
+      # - 512
+  config.lr:
+    values:
+      - 0.0003
+      - 0.001
+      - 0.003
+  config.weight_decay:
+    values:
+      - 0.1
+  config.warmup_steps:
+    values:
+      - 1000
+  config.seed:
+    values:
+      - 0
+      - 1
+      - 2
+  log_level:
+    value: 1
+  log_every:
+    value: 10000
+  eval_every:
+    value: 10000
+program: run.py

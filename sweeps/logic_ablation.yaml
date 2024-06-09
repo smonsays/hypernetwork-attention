@@ -1,0 +1,37 @@
+method: grid
+name: 20240522_logic_4var_2term_ablation
+parameters:
+  config:
+    values:
+      - configs/logic.py:logic_4var_2term;linear_attention
+      - configs/logic.py:logic_4var_2term;linear_attention_rms_head
+      - configs/logic.py:logic_4var_2term;linear_hypatt_mlp_linear
+      - configs/logic.py:logic_4var_2term;linear_hypatt_mlp_linear_no_rms_head
+      - configs/logic.py:logic_4var_2term;linear_hypatt_no_rms_head
+      - configs/logic.py:logic_4var_2term;linear_hypatt
+  config.data.seq_len:
+    values:
+      - 32
+  config.data.frac_test:
+    values:
+      - 0.7
+  config.lr:
+    values:
+      - 0.001
+      - 0.003
+  config.weight_decay:
+    values:
+      - 0.1
+      - 0.03
+  config.seed:
+    values:
+      - 0
+      - 1
+      - 2
+  log_level:
+    value: 1
+  log_every:
+    value: 10000
+  eval_every:
+    value: 10000
+program: run.py

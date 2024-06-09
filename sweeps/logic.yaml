@@ -1,0 +1,39 @@
+method: grid
+name: 20240423_logic_4var_2term_seq-len_frac_test
+parameters:
+  config:
+    values:
+      - configs/logic.py:logic_4var_2term;linear_transformer
+      - configs/logic.py:logic_4var_2term;transformer
+      - configs/logic.py:logic_4var_2term;linear_hypatt
+  config.data.seq_len:
+    values:
+      - 16
+      - 32
+      - 64
+      - 96
+  config.data.frac_test:
+    values:
+      - 0.3
+      - 0.5
+      - 0.7
+  config.lr:
+    values:
+      - 0.001
+      - 0.003
+  config.weight_decay:
+    values:
+      - 0.1
+      - 0.03
+  config.seed:
+    values:
+      - 0
+      - 1
+      - 2
+  log_every:
+    value: 10000
+  eval_every:
+    value: 10000
+  log_level:
+    value: 1
+program: run.py

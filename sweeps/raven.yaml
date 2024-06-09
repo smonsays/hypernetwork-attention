@@ -1,0 +1,47 @@
+method: grid
+name: 20240516_sraven_feature_data_vs_depth
+parameters:
+  config:
+    values:
+      - configs/raven.py:raven_3x3_4features;linear_hypatt
+      - configs/raven.py:raven_3x3_4features;transformer
+      - configs/raven.py:raven_3x3_4features;linear_transformer
+  config.data.num_train:
+    values:
+      - 40000000
+      - 20000000
+      - 10000000
+  config.width_multiplier:
+    values:
+      - 1
+      - 2
+      - 4
+  config.model.num_layers:
+    values:
+      - 4
+      - 8
+      - 16
+  config.lr:
+    values:
+      - 0.001
+      - 0.0003
+  config.weight_decay:
+    values:
+      - 0.1
+      - 0.3
+  config.warmup_steps:
+    values:
+      - 1000
+      - 3000
+  config.seed:
+    values:
+      - 0
+      - 1
+      - 2
+  log_level:
+    value: 1
+  log_every:
+    value: 1000
+  eval_every:
+    value: 10000
+program: run.py
