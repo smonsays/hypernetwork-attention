@@ -1,6 +1,6 @@
 # Attention as a Hypernetwork
 
-Official code to reproduce experiments in [Attention as a Hypernetwork](#).
+Official code to reproduce experiments in [Attention as a Hypernetwork](https://arxiv.org/abs/2406.05816).
 
 ## Installation
 
@@ -33,6 +33,6 @@ If you use this code in your research, please cite the paper:
   title={Attention as a Hypernetwork}, 
   author={Simon Schug and Seijin Kobayashi and Yassir Akram and João Sacramento and Razvan Pascanu},
   year={2024},
-  url = {#},
+  url = {https://arxiv.org/abs/2406.05816},
 }
 ```
